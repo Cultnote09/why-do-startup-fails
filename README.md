@@ -27,18 +27,3 @@ After cloning the repo somewhere else, update that parameter before refreshing:
 - **Company registry** — outcome mix from the Crunchbase extract. This is a different population from the failure write-ups.
 
 Funding totals on the cards are in billions. The total is dominated by a few mega-rounds in the source labels.
-
-## Data
-
-| File | Used for |
-| --- | --- |
-| `ideaproof-startup-failures (1).csv` | Failure write-ups |
-| `archive (1)/` | Sector postmortems |
-| `powerbi/data/*.csv` | Tables the report imports |
-| `archive (2)/companies.csv` | Not in git. It is larger than GitHub allows. `Registry.csv` is the summary the report uses. |
-
-`powerbi/build_report.py` rebuilds the cleaned CSVs and the Power BI project. Re-running it replaces report layout edits made in Power BI Desktop.
-
-## GitHub
-
-Do not commit `archive (2)/companies.csv`. GitHub rejects files over 100 MB, and that extract is about 129 MB.
