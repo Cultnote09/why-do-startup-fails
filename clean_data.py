@@ -1,29 +1,4 @@
 # -*- coding: utf-8 -*-
-"""Clean the raw startup-failure files into the tables Power BI imports.
-
-Run from the repository root:
-
-    python clean_data.py
-
-Inputs (see README for the source of each file):
-
-    data/raw/ideaproof-startup-failures.csv
-    data/raw/sectors/*.csv
-    data/raw/crunchbase/companies.csv   optional, too large to store on GitHub
-
-Outputs, written to data/processed/:
-
-    Failures.csv        one row per IdeaProof write-up
-    SectorCases.csv     one row per coded sector postmortem
-    SectorDrivers.csv   one row per postmortem x flagged driver
-    Registry.csv        Crunchbase companies rolled up by status, category, country
-
-Startup Failures.csv in the sectors folder is only a name index. It has no
-failure reason, so this script does not load it. The six sector files already
-include the reason text and the 0/1 driver flags.
-
-If companies.csv is absent, the existing Registry.csv is left unchanged.
-"""
 
 from __future__ import annotations
 
