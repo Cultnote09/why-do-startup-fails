@@ -3,9 +3,10 @@
 **/.pbi/cache.abf
 **/.pbi/unappliedChanges.json
 
-# Original Crunchbase extract. About 129 MB, over GitHub's 100 MB file limit.
-# The report uses the summary already saved in powerbi/data/Registry.csv.
-archive (2)/companies.csv
+# Original Crunchbase extract from the Kaggle Startup Investments dataset.
+# About 129 MB, over GitHub's 100 MB file limit.
+# data/processed/Registry.csv is the summary the report uses.
+data/raw/crunchbase/companies.csv
 
 __pycache__/
 *.pyc
