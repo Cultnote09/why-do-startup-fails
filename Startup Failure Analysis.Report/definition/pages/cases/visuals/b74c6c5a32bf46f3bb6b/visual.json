@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b74c6c5a32bf46f3bb6b",
+  "position": {
+    "x": 520,
+    "y": 48,
+    "z": 4000,
+    "height": 64,
+    "width": 240,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Prominence"
+                }
+              },
+              "queryRef": "Failures.Prominence",
+              "nativeQueryRef": "Prominence",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9780c1db9ba92b3d699d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Prominence"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

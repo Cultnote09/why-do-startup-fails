@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5281de00990f4552bc65",
+  "position": {
+    "x": 1011.4285714285714,
+    "y": 70,
+    "z": 6000,
+    "height": 101.42857142857143,
+    "width": 252.85714285714286,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Countries"
+                }
+              },
+              "queryRef": "Failures.Countries",
+              "nativeQueryRef": "Countries"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "45ba660f1bab060d8170",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Countries"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

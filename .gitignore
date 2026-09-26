@@ -1,0 +1,13 @@
+# Power BI local files. These are machine-specific and can be large.
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json
+
+# Original Crunchbase extract. About 129 MB, over GitHub's 100 MB file limit.
+# The report uses the summary already saved in powerbi/data/Registry.csv.
+archive (2)/companies.csv
+
+__pycache__/
+*.pyc
+Thumbs.db
+.DS_Store

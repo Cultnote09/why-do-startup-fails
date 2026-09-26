@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a0fe4a119f324f158aac",
+  "position": {
+    "x": 328.5714285714286,
+    "y": 62.85714285714286,
+    "z": 3000,
+    "height": 102.85714285714286,
+    "width": 300,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorDrivers"
+                    }
+                  },
+                  "Property": "Driver tags"
+                }
+              },
+              "queryRef": "SectorDrivers.Driver tags",
+              "nativeQueryRef": "Driver tags"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b7c71840da0ab36531ab",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SectorDrivers"
+              }
+            },
+            "Property": "Driver tags"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

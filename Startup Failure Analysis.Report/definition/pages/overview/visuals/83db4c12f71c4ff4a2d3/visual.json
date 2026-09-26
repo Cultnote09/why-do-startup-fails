@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "83db4c12f71c4ff4a2d3",
+  "position": {
+    "x": 648,
+    "y": 264,
+    "z": 12000,
+    "height": 246,
+    "width": 616,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Industry Group"
+                }
+              },
+              "queryRef": "Failures.Industry Group",
+              "nativeQueryRef": "Industry Group",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Failed startups"
+                }
+              },
+              "queryRef": "Failures.Failed startups",
+              "nativeQueryRef": "Failed startups"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Failures"
+                  }
+                },
+                "Property": "Failed startups"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Startups by industry group'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "426103fe58ee6cb7905d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Industry Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "abadc3363084a714c884",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Failed startups"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

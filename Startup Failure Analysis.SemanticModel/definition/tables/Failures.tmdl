@@ -1,0 +1,234 @@
+table Failures
+	lineageTag: b816d380-0e55-4793-9722-68770892486a
+
+	measure 'Failed startups' = COUNTROWS ( Failures )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: 81234088-682d-4bd7-addb-28983a16f763
+
+	measure 'Funding raised ($M)' = DIVIDE ( SUM ( Failures[Funding USD] ), 1000000 )
+		formatString: #,0.0
+		displayFolder: Metrics
+		lineageTag: 72796275-fd07-456f-a428-13dc1d8b69a4
+
+	measure 'Funding raised ($B)' = DIVIDE ( SUM ( Failures[Funding USD] ), 1000000000 )
+		formatString: #,0.0
+		displayFolder: Metrics
+		lineageTag: 4a91c0e2-7b56-4d18-9f33-6e2c8a1b0d47
+
+	measure 'Median funding ($M)' = DIVIDE ( MEDIAN ( Failures[Funding USD] ), 1000000 )
+		formatString: #,0.0
+		displayFolder: Metrics
+		lineageTag: 7d6a3e6a-505c-4ed9-bcf6-a7e714faf6d2
+
+	measure 'Median lifespan (years)' = MEDIAN ( Failures[Lifespan Years] )
+		formatString: 0.0
+		displayFolder: Metrics
+		lineageTag: b8bb6f29-c21d-4632-87d6-c8465a67db7c
+
+	measure Countries = CALCULATE ( DISTINCTCOUNT ( Failures[Country] ), Failures[Country] <> "Unknown" )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: e6bf5ea4-96f8-4aa6-ad5a-55abfcfbc9d2
+
+	column Startup
+		dataType: string
+		lineageTag: fe80d432-aa5a-4cfc-8e82-6129be0675ba
+		summarizeBy: none
+		sourceColumn: Startup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Slug
+		dataType: string
+		isHidden
+		lineageTag: 849f9542-1513-47a5-b427-6090675ef34d
+		summarizeBy: none
+		sourceColumn: Slug
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: ec813db4-bc02-4dde-b08a-91cbb470e191
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: a4beb266-e7b6-45b0-9783-2d5d9eefe9c4
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prominence
+		dataType: string
+		lineageTag: aceccf09-a5e9-4101-8f8b-8d1c9d5bfebc
+		summarizeBy: none
+		sourceColumn: Prominence
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 1189d2fd-2f0c-4429-a4a5-41a4d71f9fe5
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lesson
+		dataType: string
+		lineageTag: 9973b5cd-343e-4cae-870c-4ef175c2d8c4
+		summarizeBy: none
+		sourceColumn: Lesson
+
+		annotation SummarizationSetBy = Automatic
+
+	column Investors
+		dataType: string
+		lineageTag: bfb77bc4-5775-480c-913f-0b653cc07d7f
+		summarizeBy: none
+		sourceColumn: Investors
+
+		annotation SummarizationSetBy = Automatic
+
+	column Url
+		dataType: string
+		lineageTag: 535d12c3-4343-4429-bff9-da99c59c7bef
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: Url
+
+		annotation SummarizationSetBy = Automatic
+
+	column Write-up
+		dataType: string
+		lineageTag: 0937658e-9cfc-4262-801a-8f09f58383aa
+		summarizeBy: none
+		sourceColumn: Write-up
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country (top 12)'
+		dataType: string
+		lineageTag: 921a4a8d-d469-4627-b2b2-d2a823523f0e
+		summarizeBy: none
+		sourceColumn: Country (top 12)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Industry Group'
+		dataType: string
+		lineageTag: 71a9c3ed-9010-4df8-8bbd-44f324d0c6b8
+		summarizeBy: none
+		sourceColumn: Industry Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Founded Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: 57051b6b-04e2-46f8-b0fc-e7bb1db918f1
+		summarizeBy: sum
+		sourceColumn: Founded Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Failed Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: d74854a5-9c19-4130-9fde-ad770d23748b
+		summarizeBy: sum
+		sourceColumn: Failed Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lifespan Years'
+		dataType: int64
+		formatString: 0
+		lineageTag: 133a06c9-3fd6-4b15-b513-cfd8f5bb90e1
+		summarizeBy: sum
+		sourceColumn: Lifespan Years
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Failure Theme'
+		dataType: string
+		lineageTag: 9adfc021-c9ef-4eeb-b8da-d1511307020d
+		summarizeBy: none
+		sourceColumn: Failure Theme
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Theme Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7900a385-dcea-49b6-ad44-ae7668fa2efc
+		summarizeBy: sum
+		sourceColumn: Theme Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Failure Reason'
+		dataType: string
+		lineageTag: 2b783959-d718-400f-b87c-6e42eeb856c3
+		summarizeBy: none
+		sourceColumn: Failure Reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Funding Label'
+		dataType: string
+		lineageTag: a2b142e1-cf5d-4048-a767-2d9bac296df0
+		summarizeBy: none
+		sourceColumn: Funding Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Funding USD'
+		dataType: double
+		lineageTag: da73696c-852f-48e5-9d7a-cb9133fd3c90
+		summarizeBy: sum
+		sourceColumn: Funding USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Peak Valuation USD'
+		dataType: double
+		lineageTag: b0694f59-c9e0-4ac4-8038-8666256faa74
+		summarizeBy: sum
+		sourceColumn: Peak Valuation USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Employees At Peak'
+		dataType: int64
+		formatString: 0
+		lineageTag: cf0a8939-cde0-4059-b831-bfa4c8e79df7
+		summarizeBy: sum
+		sourceColumn: Employees At Peak
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Failures = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "/Failures.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Write-up", type text}, {"Startup", type text}, {"Slug", type text}, {"Country", type text}, {"Country (top 12)", type text}, {"Industry", type text}, {"Industry Group", type text}, {"Prominence", type text}, {"Category", type text}, {"Founded Year", Int64.Type}, {"Failed Year", Int64.Type}, {"Lifespan Years", Int64.Type}, {"Failure Theme", type text}, {"Theme Sort", Int64.Type}, {"Failure Reason", type text}, {"Lesson", type text}, {"Funding Label", type text}, {"Funding USD", type number}, {"Peak Valuation USD", type number}, {"Employees At Peak", Int64.Type}, {"Investors", type text}, {"Url", type text}}, "en-US"),
+				    Selected = Table.SelectColumns(Typed, {"Write-up", "Startup", "Slug", "Country", "Country (top 12)", "Industry", "Industry Group", "Prominence", "Category", "Founded Year", "Failed Year", "Lifespan Years", "Failure Theme", "Theme Sort", "Failure Reason", "Lesson", "Funding Label", "Funding USD", "Peak Valuation USD", "Employees At Peak", "Investors", "Url"})
+				in
+				    Selected
+
+	annotation PBI_ResultType = Table
+

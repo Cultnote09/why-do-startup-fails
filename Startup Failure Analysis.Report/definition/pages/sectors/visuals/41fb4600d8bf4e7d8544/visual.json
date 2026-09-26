@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "41fb4600d8bf4e7d8544",
+  "position": {
+    "x": 628.5714285714286,
+    "y": 62.85714285714286,
+    "z": 4000,
+    "height": 102.85714285714286,
+    "width": 311.42857142857144,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorDrivers"
+                    }
+                  },
+                  "Property": "Tagged startups"
+                }
+              },
+              "queryRef": "SectorDrivers.Tagged startups",
+              "nativeQueryRef": "Tagged startups"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0ad2cdfcd755c5c1c5ba",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SectorDrivers"
+              }
+            },
+            "Property": "Tagged startups"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

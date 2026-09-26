@@ -1,0 +1,66 @@
+table SectorDrivers
+	lineageTag: 3cec41d5-ca71-40af-a5e8-b832db40b52f
+
+	measure 'Driver tags' = COUNTROWS ( SectorDrivers )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: b091d87f-6012-4750-80c1-a20d79f9aa54
+
+	measure 'Tagged startups' = DISTINCTCOUNT ( SectorDrivers[Startup] )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: e8491e77-1110-4345-a76a-343c87d0e882
+
+	column Startup
+		dataType: string
+		lineageTag: 5bc1a637-2933-41fd-a7c7-10ce9764d792
+		summarizeBy: none
+		sourceColumn: Startup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sector
+		dataType: string
+		lineageTag: d2005571-ea08-4aff-a97f-d0c7aac115f9
+		summarizeBy: none
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column Driver
+		dataType: string
+		lineageTag: e69b8ce9-3c68-4389-9ef7-92447712bad0
+		summarizeBy: none
+		sourceColumn: Driver
+
+		annotation SummarizationSetBy = Automatic
+
+	column Takeaway
+		dataType: string
+		lineageTag: 755d13c0-fbbd-4559-a448-5173f5513101
+		summarizeBy: none
+		sourceColumn: Takeaway
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Why They Failed'
+		dataType: string
+		lineageTag: 389deff2-2f73-4f8c-9c32-c632b1cc5236
+		summarizeBy: none
+		sourceColumn: Why They Failed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SectorDrivers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "/SectorDrivers.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Startup", type text}, {"Sector", type text}, {"Driver", type text}, {"Why They Failed", type text}, {"Takeaway", type text}}, "en-US"),
+				    Selected = Table.SelectColumns(Typed, {"Startup", "Sector", "Driver", "Why They Failed", "Takeaway"})
+				in
+				    Selected
+
+	annotation PBI_ResultType = Table
+

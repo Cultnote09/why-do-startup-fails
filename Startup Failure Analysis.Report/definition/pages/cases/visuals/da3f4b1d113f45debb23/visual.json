@@ -1,0 +1,358 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "da3f4b1d113f45debb23",
+  "position": {
+    "x": 16,
+    "y": 124,
+    "z": 7000,
+    "height": 580,
+    "width": 1248,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Write-up"
+                }
+              },
+              "queryRef": "Failures.Write-up",
+              "nativeQueryRef": "Write-up"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "Failures.Country",
+              "nativeQueryRef": "Country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Industry Group"
+                }
+              },
+              "queryRef": "Failures.Industry Group",
+              "nativeQueryRef": "Industry Group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Failed Year"
+                }
+              },
+              "queryRef": "Failures.Failed Year",
+              "nativeQueryRef": "Failed Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Lifespan Years"
+                }
+              },
+              "queryRef": "Failures.Lifespan Years",
+              "nativeQueryRef": "Lifespan Years"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Funding raised ($M)"
+                }
+              },
+              "queryRef": "Failures.Funding raised ($M)",
+              "nativeQueryRef": "Funding raised ($M)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Prominence"
+                }
+              },
+              "queryRef": "Failures.Prominence",
+              "nativeQueryRef": "Prominence"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Failure Theme"
+                }
+              },
+              "queryRef": "Failures.Failure Theme",
+              "nativeQueryRef": "Failure Theme"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Failure Reason"
+                }
+              },
+              "queryRef": "Failures.Failure Reason",
+              "nativeQueryRef": "Failure Reason"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Lesson"
+                }
+              },
+              "queryRef": "Failures.Lesson",
+              "nativeQueryRef": "Lesson"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Url"
+                }
+              },
+              "queryRef": "Failures.Url",
+              "nativeQueryRef": "Url"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Failure write-ups'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e61edac0264d0de0c4eb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Write-up"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cae74b91285786de48d0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "81d052680056e88b148d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Industry Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ce70be09b4674a1b8467",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Failed Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2dd5871fbd0967002cea",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Lifespan Years"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "31c67a862a0cc0613524",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Funding raised ($M)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5117b6dcb142931284cc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Prominence"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c0282dd00bd75c68c818",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Failure Theme"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "625e3fa092e7aec6dd8a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Failure Reason"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cad5f557e2145812492a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Lesson"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7cd70bf7dd00a28010ce",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Url"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

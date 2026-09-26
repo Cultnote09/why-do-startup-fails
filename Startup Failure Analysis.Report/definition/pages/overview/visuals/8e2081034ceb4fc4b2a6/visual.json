@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8e2081034ceb4fc4b2a6",
+  "position": {
+    "x": 268.5714285714286,
+    "y": 70,
+    "z": 3000,
+    "height": 101.42857142857143,
+    "width": 240.00000000000003,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Funding raised ($B)"
+                }
+              },
+              "queryRef": "Failures.Funding raised ($B)",
+              "nativeQueryRef": "Funding raised ($B)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "93fdfa66b5bcad091e5e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Funding raised ($B)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

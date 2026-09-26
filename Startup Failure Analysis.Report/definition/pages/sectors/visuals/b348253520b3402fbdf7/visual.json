@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b348253520b3402fbdf7",
+  "position": {
+    "x": 648,
+    "y": 438,
+    "z": 8000,
+    "height": 264,
+    "width": 616,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Startup"
+                }
+              },
+              "queryRef": "SectorCases.Startup",
+              "nativeQueryRef": "Startup"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Sector"
+                }
+              },
+              "queryRef": "SectorCases.Sector",
+              "nativeQueryRef": "Sector"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Lifespan Years"
+                }
+              },
+              "queryRef": "SectorCases.Lifespan Years",
+              "nativeQueryRef": "Lifespan Years"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Raised Label"
+                }
+              },
+              "queryRef": "SectorCases.Raised Label",
+              "nativeQueryRef": "Raised Label"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Why They Failed"
+                }
+              },
+              "queryRef": "SectorCases.Why They Failed",
+              "nativeQueryRef": "Why They Failed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SectorCases"
+                    }
+                  },
+                  "Property": "Takeaway"
+                }
+              },
+              "queryRef": "SectorCases.Takeaway",
+              "nativeQueryRef": "Takeaway"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'What the postmortems said'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

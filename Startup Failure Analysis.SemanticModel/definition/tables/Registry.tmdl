@@ -1,0 +1,74 @@
+table Registry
+	lineageTag: fc81f750-bb56-4cef-b403-a84ecb43b819
+
+	measure 'Registry companies' = SUM ( Registry[Companies] )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: 13f1ba4f-a331-4a78-b2fd-0b29f30eeb60
+
+	measure 'Closed companies' = CALCULATE ( [Registry companies], Registry[Status] = "Closed" )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: 48e8fd05-409c-4e8f-8910-13aa2882bff7
+
+	measure 'Registry funding ($B)' = DIVIDE ( SUM ( Registry[Funding USD] ), 1000000000 )
+		formatString: #,0.0
+		displayFolder: Metrics
+		lineageTag: 60608fed-e0bc-44dd-beeb-6839470336dd
+
+	column Status
+		dataType: string
+		lineageTag: 2c16278f-5e65-4cac-9e43-14aca2d3a011
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 112577be-f01a-40ad-a9b7-1242f09dd464
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Companies
+		dataType: int64
+		formatString: #,0
+		lineageTag: af35d257-8869-4b93-a019-ff915b9acb99
+		summarizeBy: sum
+		sourceColumn: Companies
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Group'
+		dataType: string
+		lineageTag: 8e57da4a-092c-44ad-a832-97ba2acc8025
+		summarizeBy: none
+		sourceColumn: Category Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Funding USD'
+		dataType: double
+		lineageTag: bfc37829-60d5-42ce-b936-bdd0f702bd30
+		summarizeBy: sum
+		sourceColumn: Funding USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Registry = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "/Registry.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Status", type text}, {"Category Group", type text}, {"Country", type text}, {"Companies", Int64.Type}, {"Funding USD", type number}}, "en-US"),
+				    Selected = Table.SelectColumns(Typed, {"Status", "Category Group", "Country", "Companies", "Funding USD"})
+				in
+				    Selected
+
+	annotation PBI_ResultType = Table
+

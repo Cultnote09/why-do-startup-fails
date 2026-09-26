@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "872a0d587e9c4ec98f2d",
+  "position": {
+    "x": 331.42857142857144,
+    "y": 55.714285714285715,
+    "z": 3000,
+    "height": 94.28571428571429,
+    "width": 308.5714285714286,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Failures"
+                    }
+                  },
+                  "Property": "Median funding ($M)"
+                }
+              },
+              "queryRef": "Failures.Median funding ($M)",
+              "nativeQueryRef": "Median funding ($M)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7ebe5c38096069b6718a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Failures"
+              }
+            },
+            "Property": "Median funding ($M)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

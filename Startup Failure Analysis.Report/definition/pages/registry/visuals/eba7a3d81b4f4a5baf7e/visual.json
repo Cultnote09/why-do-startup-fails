@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "eba7a3d81b4f4a5baf7e",
+  "position": {
+    "x": 317.14285714285717,
+    "y": 70,
+    "z": 3000,
+    "height": 98.57142857142858,
+    "width": 311.42857142857144,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Registry"
+                    }
+                  },
+                  "Property": "Registry funding ($B)"
+                }
+              },
+              "queryRef": "Registry.Registry funding ($B)",
+              "nativeQueryRef": "Registry funding ($B)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "07bce55606975c9a9d0a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Registry"
+              }
+            },
+            "Property": "Registry funding ($B)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

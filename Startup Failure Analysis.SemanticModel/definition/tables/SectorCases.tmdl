@@ -1,0 +1,120 @@
+table SectorCases
+	lineageTag: 5b6df015-2e27-4f4c-9792-ddbf8445510e
+
+	measure 'Sector cases' = COUNTROWS ( SectorCases )
+		formatString: #,0
+		displayFolder: Metrics
+		lineageTag: b7306187-9b74-4247-86ba-758703f4b5e7
+
+	measure 'Sector funding ($B)' = DIVIDE ( SUM ( SectorCases[Raised USD] ), 1000000000 )
+		formatString: #,0.0
+		displayFolder: Metrics
+		lineageTag: aad1bf9e-b60c-4079-a733-ea30d6ffbbca
+
+	column Startup
+		dataType: string
+		lineageTag: dabc6f75-b3fe-4ed2-b300-ec51b2c7643c
+		summarizeBy: none
+		sourceColumn: Startup
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sector
+		dataType: string
+		lineageTag: 6b458ea4-aab0-4771-8ed6-131ce4f0510c
+		summarizeBy: none
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column Takeaway
+		dataType: string
+		lineageTag: 5342081c-16c0-4878-b20b-78575b482b4e
+		summarizeBy: none
+		sourceColumn: Takeaway
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'What They Did'
+		dataType: string
+		lineageTag: e422bec7-25eb-4267-b16a-4aad805a61a5
+		summarizeBy: none
+		sourceColumn: What They Did
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Why They Failed'
+		dataType: string
+		lineageTag: ea5be459-c1d0-40a9-b5af-95ebca7e6996
+		summarizeBy: none
+		sourceColumn: Why They Failed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Raised Label'
+		dataType: string
+		lineageTag: f0e15bbf-5d30-4dcd-9353-800cebe62459
+		summarizeBy: none
+		sourceColumn: Raised Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Raised USD'
+		dataType: double
+		lineageTag: 027aa874-c2ae-445e-b1b1-e4ba912bb156
+		summarizeBy: sum
+		sourceColumn: Raised USD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Start Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: d5a12c6d-54f7-47bc-b7e9-5c0ff95a4812
+		summarizeBy: sum
+		sourceColumn: Start Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: bc7688aa-5e85-4e6e-8138-6b27946e50c2
+		summarizeBy: sum
+		sourceColumn: End Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lifespan Years'
+		dataType: int64
+		formatString: 0
+		lineageTag: a8d6c8ee-f3fb-42a5-8547-41656fe29e49
+		summarizeBy: sum
+		sourceColumn: Lifespan Years
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Driver Count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bd6153b-cb3b-47bc-892a-a5d91b72896b
+		summarizeBy: sum
+		sourceColumn: Driver Count
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SectorCases = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "/SectorCases.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"Startup", type text}, {"Sector", type text}, {"What They Did", type text}, {"Why They Failed", type text}, {"Takeaway", type text}, {"Raised Label", type text}, {"Raised USD", type number}, {"Start Year", Int64.Type}, {"End Year", Int64.Type}, {"Lifespan Years", Int64.Type}, {"Driver Count", Int64.Type}}, "en-US"),
+				    Selected = Table.SelectColumns(Typed, {"Startup", "Sector", "What They Did", "Why They Failed", "Takeaway", "Raised Label", "Raised USD", "Start Year", "End Year", "Lifespan Years", "Driver Count"})
+				in
+				    Selected
+
+	annotation PBI_ResultType = Table
+
